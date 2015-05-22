@@ -10,6 +10,18 @@ $(document).ready(function() {
     	}
 	});
 
+	$(".video-icon").click(function() {
+		var videoSource = $(this).data("video");
+		$(".video-container").fadeTo(1000, 0, function() {
+			$(".video-source").attr("src", videoSource);
+			$(".main-video")[0].load();
+			$(".video-container").fadeTo(1000, 1.0, function() {
+				$(".main-video")[0].play();
+			});
+		});
+
+	});
+
     var winHeight = $(window).height();
 
     $(".section").css({ "min-height": winHeight});
